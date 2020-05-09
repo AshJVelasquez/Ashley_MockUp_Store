@@ -24,6 +24,9 @@ namespace Ashley_MockUp_Store
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            //05-09-2020 Added next two lines per textbook 20486D - Developing ASP.NET Core MVC Web Applications - Module 13 Implementing Web APIs - Lesson 3
+            services.AddMvc();
+            services.AddHttpClient();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,5 +56,6 @@ namespace Ashley_MockUp_Store
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
+
     }
 }
