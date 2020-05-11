@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ashley_MockUp_Store", "Ashley_MockUp_Store.csproj", "{AD2750DA-63B2-46BB-B159-7DC22C5A27CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ashley_MockUp_Store", "Ashley_MockUp_Store.csproj", "{AD2750DA-63B2-46BB-B159-7DC22C5A27CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Giphy Lib", "..\Giphy Lib\Giphy Lib.csproj", "{8E760D86-C625-4847-8134-8A680B632935}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{AD2750DA-63B2-46BB-B159-7DC22C5A27CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD2750DA-63B2-46BB-B159-7DC22C5A27CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD2750DA-63B2-46BB-B159-7DC22C5A27CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E760D86-C625-4847-8134-8A680B632935}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E760D86-C625-4847-8134-8A680B632935}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E760D86-C625-4847-8134-8A680B632935}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E760D86-C625-4847-8134-8A680B632935}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
