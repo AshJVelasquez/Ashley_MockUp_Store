@@ -6,6 +6,11 @@
 
   <ItemGroup>
     <PackageReference Include="IKVM" Version="8.1.5717" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Giphy Lib\Giphy Lib.csproj" />
   </ItemGroup>
 
 </Project>

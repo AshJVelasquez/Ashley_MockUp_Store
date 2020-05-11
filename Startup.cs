@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using com.sun.tools.corba.se.logutil;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,8 +27,15 @@ namespace Ashley_MockUp_Store
         {
             services.AddControllersWithViews();
             //05-09-2020 Added next two lines per textbook 20486D - Developing ASP.NET Core MVC Web Applications - Module 13 Implementing Web APIs - Lesson 3
+            //05-11-2020 Another note from the Resource 1 Youtube video, this method adds all of the MVC framework dependencies into the project
             services.AddMvc();
             services.AddHttpClient();
+
+
+            //05-11-2020 Added this to make UseMvc work. 
+            MvcOptions custom = new MvcOptions();
+            custom.EnableEndpointRouting = false;
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +51,7 @@ namespace Ashley_MockUp_Store
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -49,12 +59,17 @@ namespace Ashley_MockUp_Store
 
             app.UseAuthorization();
 
+            app.UseMvc(); //05-11-2020 (where the MVS is added to the pipeline-Youtuber Daniel Donbavand)
+                          //A note:  warning MVC1005: Using 'UseMvc' to configure MVC is not supported while using Endpoint Routing. To continue using 'UseMvc', please set 'MvcOptions.EnableEndpointRouting = false' inside 'ConfigureServices'.
+
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
         }
 
     }
