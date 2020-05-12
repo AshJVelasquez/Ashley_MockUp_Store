@@ -17,6 +17,9 @@ namespace Ashley_MockUp_Store.Controllers
             _giphyService = giphyService;
         }
 
+        //05-12-2020 Adding the route so we show what we want to show to the end user
+        [HttpGet]
+        [Route ("v1/giphy/random/[searchCriteria]")]
         public async Task<IActionResult> GetRandomGif(string searchCriteria)
         {
             var result = await _giphyService.GetRandomGifBasedOnSearchCritera(searchCriteria); 
