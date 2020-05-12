@@ -23,8 +23,21 @@
             "Gets or sets a value that determines if routing should use endpoints internally, or if legacy routing logic should be used. Endpoint routing is used to match HTTP requests to MVC actions, and to generate URLs with IUrlHelper."
     It makes me wonder if I need to keep some of the other app.etcs in the Configure section. 
 
-    Notes
+   Thoughts
     I am starting to understand dependency a bit more. Interfaces are useful when we just want that list of methods and properties. That way, on our actual class, the main meat of code can be changed without trying to have a mass of code to look through when you want to just test other parts of the program. Plus, I can probably use another class in part of that interface. 
     It makes me wonder what comes first: the Interface or the Class?
 
     Time for break: Left off at 6:52 in YT video -  https://www.youtube.com/watch?v=3J9Cs9ybZDg
+
+  05-12-2020
+  Resources
+  1. Still using YT Daniel Donbavand https://www.youtube.com/watch?v=3J9Cs9ybZDg
+  2. https://developers.giphy.com/docs/api/endpoint This was used to get the link for my search endpoint
+  3. https://developers.giphy.com/explorer/ This is the generated seach endpoint. I like this, very useful
+
+  Returning to where I left off yesterday. I got the models set up and then the Giphy routes and deserilizaing that json file returned.
+
+  Next Steps
+  1. Continue from video at 16:25. This next step is going to the Startup.cs to implement the library. 
+  2. Run the program to see if I can bring up the giphy stuff
+  3. Then apply again to the Printful API. Now keep in mind that I do not want to show the key to the end user. So that route attribute will be useful for me to remember to do. 
