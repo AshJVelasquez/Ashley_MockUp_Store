@@ -41,3 +41,18 @@
   1. Continue from video at 16:25. This next step is going to the Startup.cs to implement the library. 
   2. Run the program to see if I can bring up the giphy stuff
   3. Then apply again to the Printful API. Now keep in mind that I do not want to show the key to the end user. So that route attribute will be useful for me to remember to do. 
+  
+  Later
+  Resources
+  1. https://www.postman.com/downloads/ - Next steps using Postman to test API (I think)
+  2. https://github.com/dotnet/aspnetcore/issues/9542 - the changing the option thing was not successful again. So I googled it and here we go! The program likes it so far
+
+  Notes 
+  Okay, so everything I did on 05-09-2020 needed to be commented out. I forgot I just added stuff from the book and never really went to fix it. Homepage loads up! 
+
+  How to Test
+  1. Go to Postman
+  2. Load Project
+  3. Get the local host link: https://localhost:[######]/
+  4. Make a new tab in the Postman and enter the link, then the v1/giphy/random/{searchCritera}
+  Oh, it didn't work. Well, I mean, I went to the link directly on my end and now I see that it showed a collection of all the data
