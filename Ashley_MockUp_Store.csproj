@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Giphy Lib\Giphy Lib.csproj" />
+    <ProjectReference Include="..\Printful Library\Printful Library.csproj" />
   </ItemGroup>
 
 </Project>
