@@ -56,3 +56,13 @@
   3. Get the local host link: https://localhost:[######]/
   4. Make a new tab in the Postman and enter the link, then the v1/giphy/random/{searchCritera}
   Oh, it didn't work. Well, I mean, I went to the link directly on my end and now I see that it showed a collection of all the data
+
+  05-15-2020
+  Resouces
+  1. Current Project - Going to try to recreate the steps I took from the YT video to set up my Printful API. 
+  2. https://www.printful.com/docs/index -- All right! Now that I set up, I want to make sure I can retrieve this information. 
+  3. https://github.com/codedghost/PrintfulLib/blob/master/PrintfulLib/PrintfulLib/Helpers/HttpClientHelper.cs -- Helpful in me finding out how others used their API key. 
+  4. https://github.com/codedghost/PrintfulLib -- I want to look at this more! I like the structure of how everything looks. 
+
+  Notes
+  At this time, I only got to set up a way to have the API get request work. Now, after setting this up, I want to work on displaying the information. I hope I can get to this next part successfully. 
