@@ -66,3 +66,13 @@
 
   Notes
   At this time, I only got to set up a way to have the API get request work. Now, after setting this up, I want to work on displaying the information. I hope I can get to this next part successfully. 
+
+  Later
+  Resources
+  1. https://github.com/codedghost/PrintfulLib/blob/master/PrintfulLib/PrintfulLib/Helpers/HttpClientHelper.cs -- Observing this
+  2. http://dotnetblogpost.com/2017/11/22/csharp-httpclient-utility-class-calling-web-api/ -- I looked up cause I was wondering how codedphost was implementing the headers
+  3. https://www.printful.com/docs/index -- Looking at what the header needs to have
+  4. https://stackoverflow.com/questions/4334521/httpwebrequest-using-basic-authentication 
+  5. https://stackoverflow.com/questions/14627399/setting-authorization-header-of-httpclient -- the Header formatting I am going to use in this instance
+  6. https://docs.microsoft.com/en-us/dotnet/api/system.net.http.httpclient?view=netcore-3.1 -- Overall documentation on the HttpClient
+  7. https://docs.microsoft.com/en-us/uwp/api/windows.web.http.httpclient.defaultrequestheaders?view=winrt-19041 -- This might mean I don't need to set this up. Let's test it on the other computer! 
