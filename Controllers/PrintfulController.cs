@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Ashley_MockUp_Store.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Printful_Library.Services;
@@ -17,12 +18,15 @@ namespace Ashley_MockUp_Store.Controllers
             _printfulService = printfulService;
         }
 
+        
+
         [HttpGet]
-        [Route ("v1/printful/inventory")]
+        [Route("printful/inventory")]
         public async Task<IActionResult> GetInventory()
         {
-            var result = await _printfulService.GetFullInvenotry();
-            return Ok(result);
+            var result = await _printfulService.GetFullInventory();
+            var total = result.Result.ToList();
+            return View(total);
         }
     }
 }

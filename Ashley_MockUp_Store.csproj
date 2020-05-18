@@ -14,4 +14,8 @@
     <ProjectReference Include="..\Printful Library\Printful Library.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Printful\" />
+  </ItemGroup>
+
 </Project>
