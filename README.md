@@ -86,3 +86,8 @@
 
   Notes
   So, it looks like with saving my API response to the Printful Model, I got to chech my data gets written to the right memebers. Now, to figure out how to display that data
+
+  05-18-2020
+  Resources
+  1. https://alligator.io/css/cropping-images-object-fit/ -- From Sarah Mosso back in MSTA Connect! 
+  2. https://www.w3schools.com/css/default.asp -- Helping me fixup my homepage
