@@ -76,3 +76,13 @@
   5. https://stackoverflow.com/questions/14627399/setting-authorization-header-of-httpclient -- the Header formatting I am going to use in this instance
   6. https://docs.microsoft.com/en-us/dotnet/api/system.net.http.httpclient?view=netcore-3.1 -- Overall documentation on the HttpClient
   7. https://docs.microsoft.com/en-us/uwp/api/windows.web.http.httpclient.defaultrequestheaders?view=winrt-19041 -- This might mean I don't need to set this up. Let's test it on the other computer! 
+
+  05-17-2020
+  Resources
+  1. https://learning.postman.com/docs/postman/sending-api-requests/authorization/#basic-auth
+  2. https://www.bing.com/search?q=encode+base64&form=EDGTCT&qs=SC&cvid=5cdef4c22a3544ac8874d0f3d1fb48e9&refig=77c776c37aba482da5dacb07a39439ec&cc=US&setlang=en-US&plvar=0 -- Used this to ensure that my encoder works. It does! 
+  3. https://docs.microsoft.com/en-us/dotnet/framework/wcf/feature-details/data-contract-names -- And, now I got my data to show up! 
+  4. https://www.yogihosting.com/aspnet-core-consume-api/ -- Started following this tutorial to see if I can start putting the data on my front page
+
+  Notes
+  So, it looks like with saving my API response to the Printful Model, I got to chech my data gets written to the right memebers. Now, to figure out how to display that data

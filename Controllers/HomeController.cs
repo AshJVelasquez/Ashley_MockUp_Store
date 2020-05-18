@@ -9,66 +9,27 @@ using Ashley_MockUp_Store.Models;
 using Microsoft.AspNetCore.Authorization;
 using javax.naming.directory;
 using System.Net.Http;
+using Printful_Library.Services;
+using Printful_Library.Models;
 
 namespace Ashley_MockUp_Store.Controllers
 {
     
     public class HomeController : Controller
     {
-        //05-12-2020 Commented most of the added from from 05-09-2020 since it wasn't needed in the tutorial I followed. 
-        //// Begin 
-        //// 05-09-2020 : 20486D - Developing ASP.NET Core MVC Web Applications - Module 13 Implementing Web APIs - Lesson 3
-        //private IHttpClientFactory _httpClientFactory;
+        private readonly IPrintfulServices _printfulService;
 
-        //public HomeController(IHttpClientFactory httpClientFactory)
-        //{
-        //    _httpClientFactory = httpClientFactory;
-        //}
-        ////End
-
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IPrintfulServices printfulService)
         {
-            _logger = logger;
+            _printfulService = printfulService;
         }
 
-        public IActionResult Index()
+
+        public async Task<IActionResult> Index()
         {
-            //HttpClient httpClient = _httpClientFactory.CreateClient(); //05-09-2020 Added this line
-            return View();
+            var result = await _printfulService.GetFullInventory();
+            var total = result.Result.ToList();
+            return View(total);
         }
-
-        ////BEGIN 
-        ////05-09-2020 Added this section to set up for api controller 
-        ////No idea if this will work. I think throwing stuff together might help. Haha, but I think at my next time, I will watch a video on how to do this process cause so far the book is not making sense. 
-        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        //public IActionResult Error()
-        //{
-        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        //}
-
-        //[Route("api/[controller]")]
-        //[ApiController]
-        //public class ValuesController : ControllerBase
-        //{
-        //    Dictionary<string, string> _items = new Dictionary<string, string>();
-
-        //    public ValuesController()
-        //    {
-        //        _items["key1"] = "value1";
-        //        _items["key2"] = "value2";
-        //    }
-
-        //    [HttpGet("{id}")]
-        //    public ActionResult<string> Get(string id)
-        //    {
-        //        if (_items.ContainsKey(id) == false)
-        //            return NotFound();
-
-        //        return _items[id];
-        //    }
-        //}
-        ////END
     }
 }
