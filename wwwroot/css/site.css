@@ -69,3 +69,32 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+/*Store front css*/
+#itemImage {
+    border:solid;
+    border-radius: 10px;
+    border-color: black;
+    border-width: 1px;
+    object-fit:cover;
+    max-width:60%;
+    height:auto;
+}
+
+div.gallery {
+    margin: 5px;
+    border: 1px solid black;
+    float: left;
+    width:auto;
+    border-radius:10px;
+    padding:3%;
+}
+div.gallery:hover {
+        border: 1px solid #777;
+    }
+
+#itemInfo {
+    padding: 15px;
+    text-align: center;
+}
+/*https://www.w3schools.com/css/css_image_gallery.asp trying this out*/

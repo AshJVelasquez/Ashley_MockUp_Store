@@ -10,16 +10,19 @@
     <p><a>Here, I will use APIs from Printful and Paypal Sandbox to create my storefront.</a></p>
 </div>
 
-<div>
-    <table class="table-striped">
-        <thead><tr><th>Name</th><th>Picture Url</th><th>ID</th></tr></thead>
-        <tbody>
-            @foreach(var d in Model)
-            {
-                <td>@d.name</td>
-                <td>@d.thumbnail_url</td>
-                <td>@d.id</td>
-            }
-        </tbody>
-    </table>
+
+@foreach (var d in Model)
+{
+<div class="gallery">
+    <a target="_blank" href="@d.thumbnail_url">
+        <div>
+            <img id="itemImage" src="@d.thumbnail_url" alt="@d.name">
+        </div>
+    </a>
+    <div id="itemInfo">
+        <p>Item Name: @d.name</p>
+        <p>Item Number: @d.id</p>
+    </div>
 </div>
+        }
+
