@@ -26,7 +26,7 @@ namespace Ashley_MockUp_Store.Controllers
         {
             var result = await _printfulService.GetFullInventory();
             var total = result.Result.ToList();
-            return View(total);
+            return Ok(total);
         }
     }
 }
