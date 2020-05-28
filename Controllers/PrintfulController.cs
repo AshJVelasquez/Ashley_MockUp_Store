@@ -28,5 +28,16 @@ namespace Ashley_MockUp_Store.Controllers
             var total = result.Result.ToList();
             return Ok(total);
         }
+
+
+        //TODO Determine if this brings up what I need
+        [HttpGet]
+        [Route("printful/inventory/{id}")]
+        public async Task<IActionResult> GetProductInfo(int id)
+        {
+            var result = await _printfulService.GetAllProductInfo(id);
+            var total = result.Result.ToList();
+            return Ok(total);
+        }
     }
 }

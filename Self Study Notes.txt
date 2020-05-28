@@ -89,4 +89,15 @@
   1. https://alligator.io/css/cropping-images-object-fit/ -- From Sarah Mosso back in MSTA Connect! 
   2. https://www.w3schools.com/css/default.asp -- Helping me fixup my homepage
 
+
 05-28-2020
+Resources
+1. https://www.printful.com/docs/products
+2. CodedGhost's API is used as a reference point on how they set up getting their product information
+
+Today's focus is setting up the Printful API to recieve information on one particular item with 1 variant of that item. 
+Link to use with postman: /inventory/product/174141395
+
+Looks like for this case, I may need to create a new class just for the variant, then put them in a list for later use.
+
+Okay, so the id DOES pass through on the Printful Controller, but then it stops at the Printful Library's PrinfulServices.cs because of a null reference. 
