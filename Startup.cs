@@ -38,6 +38,7 @@ namespace Ashley_MockUp_Store
             services.AddSingleton<IGetRandomGif, GetRandomGif>();
             services.AddSingleton<IPrintfulServices, PrintfulServices>();
             services.AddSingleton<IGetInventory, GetInventory>();
+            services.AddSingleton<IGetProductInfo, GetProductInfo>();
             //End 05-15-2-2020 
             services.AddHttpClient();
 
