@@ -67,7 +67,7 @@
   Later
   Resources
   1. https://github.com/codedghost/PrintfulLib/blob/master/PrintfulLib/PrintfulLib/Helpers/HttpClientHelper.cs -- Observing this
-  2. http://dotnetblogpost.com/2017/11/22/csharp-httpclient-utility-class-calling-web-api/ -- I looked up cause I was wondering how codedphost was implementing the headers
+  2. http://dotnetblogpost.com/2017/11/22/csharp-httpclient-utility-class-calling-web-api/ -- I looked up cause I was wondering how codedghost was implementing the headers
   3. https://www.printful.com/docs/index -- Looking at what the header needs to have
   4. https://stackoverflow.com/questions/4334521/httpwebrequest-using-basic-authentication 
   5. https://stackoverflow.com/questions/14627399/setting-authorization-header-of-httpclient -- the Header formatting I am going to use in this instance
@@ -101,3 +101,57 @@ Link to use with postman: /inventory/product/174141395
 Looks like for this case, I may need to create a new class just for the variant, then put them in a list for later use.
 
 Okay, so the id DOES pass through on the Printful Controller, but then it stops at the Printful Library's PrinfulServices.cs because of a null reference. 
+
+05-29-2020
+Resources
+1. https://csharpindepth.com/articles/singleton - I'm trying to look up if what I have here is a singleton API 
+2. https://danieldonbavand.com/implementing-an-api/ -- YT Daniel Donbavand again, but this time I am reading this blog post to find out that this is dependency injection I am using
+3. https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1 -- This holds an example of multiple interfaces used as parameters for the dependency. 
+
+Notes
+With thisDay.Resource #3 I notice that the format for getting the other interfaces are different.
+
+I will test what I have now:
+
+        private readonly IGetInventory _getInventory;
+        private readonly IGetProductInfo _getProductInfo;
+
+        public PrintfulServices(IGetInventory getInventory, IGetProductInfo getProductInfo)
+        {
+            _getInventory = getInventory;
+            _getProductInfo = getProductInfo;
+        }
+
+Error Message: InvalidOperationException: Unable to resolve service for type 'Printful_Library.Printful.IGetProductInfo' while attempting to activate 'Printful_Library.Services.PrintfulServices'.
+
+This is found under startup!!!
+
+        // This method gets called by the runtime. Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddControllersWithViews();
+            //05-09-2020 Added next two lines per textbook 20486D - Developing ASP.NET Core MVC Web Applications - Module 13 Implementing Web APIs - Lesson 3
+            //05-11-2020 Another note from the Resource 1 Youtube video, this method adds all of the MVC framework dependencies into the project
+            services.AddMvc(option => option.EnableEndpointRouting = false);
+            //05-12-2020 Adding this to the ConfigureServices to enter the Giphylibrary inside
+            services.AddSingleton<IGiphyServices, Giphy_Lib.Services.GiphyServices>();
+            services.AddSingleton<IGetRandomGif, GetRandomGif>();
+            services.AddSingleton<IPrintfulServices, PrintfulServices>();
+            services.AddSingleton<IGetInventory, GetInventory>();
+            //End 05-15-2-2020 
+            services.AddHttpClient();
+
+            
+        }
+I never added the singleton service!!!!!
+
+And! I forgot to add the interface to the GetProductInfo
+        public class GetProductInfo: IGetProductInfo
+
+Okay, now I get this error: 
+            Newtonsoft.Json.JsonSerializationException: Cannot deserialize the current JSON object (e.g. {"name":"value"}) into type 'System.Collections.Generic.IEnumerable`1[Printful_Library.Models.Data]' because the type requires a JSON array (e.g. [1,2,3]) to deserialize correctly.
+            To fix this error either change the JSON to a JSON array (e.g. [1,2,3]) or change the deserialized type so that it is a normal .NET type (e.g. not a primitive type like integer, not a collection type like an array or List<T>) that can be deserialized from a JSON object. JsonObjectAttribute can also be added to the type to force it to deserialize from a JSON object.
+
+Which is to be expected cause I knew more infromation was coming in from this API
+
+At least this started right now. Looks like I got to backtrack and remodel my models to account for the varying differences of products. I'll probably follow codedGhost's model format. 
