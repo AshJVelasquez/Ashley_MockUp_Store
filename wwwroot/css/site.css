@@ -79,19 +79,28 @@ body {
     object-fit:cover;
     max-width:60%;
     height:auto;
+    padding-right:10%;
+    padding-left: 10%;
 }
 
 div.gallery {
-    margin: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10%;
+    margin-right: 10%;
     border: 1px solid black;
-    float: left;
     width:auto;
     border-radius:10px;
-    padding:3%;
+    padding-top:5%;
 }
 div.gallery:hover {
         border: 1px solid #777;
     }
+
+.imageContainer{
+    padding-left:10%;
+    padding-right:10%;
+}
 
 #itemInfo {
     padding: 15px;
