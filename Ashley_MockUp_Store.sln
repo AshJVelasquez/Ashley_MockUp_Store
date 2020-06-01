@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ashley_MockUp_Store", "Ashl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Giphy Lib", "..\Giphy Lib\Giphy Lib.csproj", "{8E760D86-C625-4847-8134-8A680B632935}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Printful Library", "..\Printful Library\Printful Library.csproj", "{203D4A5E-0D6A-4A8E-9F7C-C7377F57A15D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Printful Library", "..\Printful Library\Printful Library.csproj", "{203D4A5E-0D6A-4A8E-9F7C-C7377F57A15D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
