@@ -155,3 +155,9 @@ Okay, now I get this error:
 Which is to be expected cause I knew more infromation was coming in from this API
 
 At least this started right now. Looks like I got to backtrack and remodel my models to account for the varying differences of products. I'll probably follow codedGhost's model format. 
+
+06-01-2020 
+1. Using codedghost as reference
+
+Notes
+Okay, so now I got the price to show up in Postman(see 06-01-2020 PostmanResult)! I had to comment out the files string since I knew the data that is labeled under files have different variable names. 

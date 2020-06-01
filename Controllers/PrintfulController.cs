@@ -36,7 +36,7 @@ namespace Ashley_MockUp_Store.Controllers
         public async Task<IActionResult> GetProductInfo(int id)
         {
             var result = await _printfulService.GetAllProductInfo(id);
-            var total = result.Result.ToList();
+            var total = result.Result;
             return Ok(total);
         }
     }
