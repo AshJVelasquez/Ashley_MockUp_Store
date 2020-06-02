@@ -161,3 +161,7 @@ At least this started right now. Looks like I got to backtrack and remodel my mo
 
 Notes
 Okay, so now I got the price to show up in Postman(see 06-01-2020 PostmanResult)! I had to comment out the files string since I knew the data that is labeled under files have different variable names. 
+
+06-02-2020 
+Notes
+Continued using codedghost as a reference and utilizing Postman in ensuring I got the data I wanted. Success! So, next step is to be able to display the price on the front page. 
