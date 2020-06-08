@@ -9,6 +9,12 @@ namespace Ashley_MockUp_Store.Models
 {
     public class FrontPageViewModel
     {
+        private IGetProductInfo _getProductInfo;
+        public FrontPageViewModel(IGetProductInfo getProductInfo)
+        {
+            _getProductInfo = getProductInfo;
+        }
+
         public List<Product> ReturnProductList(List<SyncProduct> total)
         {
             List<Product> products = new List<Product>();
@@ -26,7 +32,7 @@ namespace Ashley_MockUp_Store.Models
                 //TODO 06-07-2020 Finish this wishful programming
                 ProductTotalInfo details = ReturnProductDetails(product.id);
                 item.Price = GetProductPrice(details);
-                item.NumberOfSizes = GetProductSizes(details);
+                //item.NumberOfSizes = GetProductSizes(details); I want to test the price first
             }
             return products;
         }
@@ -34,20 +40,26 @@ namespace Ashley_MockUp_Store.Models
         //TODO 06-07-2020 Returning only the class
         public ProductTotalInfo ReturnProductDetails(int id)
         {
-            throw new NotImplementedException();
+            var result = GetProductDetails(id);
+            var details = result.Result;
+            return details;
         }
 
         //TODO 06/07/2020 How do I get all the product info? 
         public async Task<ProductTotalInfo> GetProductDetails(int id)
         {
-            throw new NotImplementedException();
+            var result = await GetProductDetails(id);
+            return result;
         }
 
         //TODO Method on getting Price
         //06-03-2020 Let's get by with STARTING PRICE AT $$$$
         public float GetProductPrice(ProductTotalInfo details)
         {
-            throw new NotImplementedException();
+            //TODO 06-08-2020 Write conditions incase this cannot be retrived
+            //Also, I may need to add CultureInfo according to StackOverflow
+            var value = float.Parse(details.Result.SyncVariants[0].price);
+            return value;
         }
         //TODO Method on getting Sizes
         public int GetProductSizes(ProductTotalInfo details)

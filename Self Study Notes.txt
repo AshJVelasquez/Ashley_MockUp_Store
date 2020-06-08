@@ -176,5 +176,13 @@ Most of the set up is nearing its close. I hope I am successful.
 06-07-2020
 Resources
 1. 20486D - Developing ASP.NET Core MVC Web Applications Textbook
+
 Notes
 Continuing my ViewModel. I know I want to use the interface in my code, but I don't recall how to implement it.
+
+06-08-2020 
+Resources
+1. https://stackoverflow.com/questions/11202673/converting-string-to-float-in-c-sharp
+
+Notes
+Following TODOs
