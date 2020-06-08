@@ -8,18 +8,37 @@ namespace Ashley_MockUp_Store.Models
     public class Product
     {
 
-        public int ID { get; set; }
-        public string ExternalID { get; set; }
-        public string Name { get; set; }
-        public int Variants { get; set; }
-        public string ThumbnailUrl { get; set; }
+        private string productName;
+        private int productID;
+        private float productPrice;
+        private string productImage;
+        //private int colorsAvaliable;
+        private int productSizes;
 
-        //05-17-2020 Commenting these out for later
-        //public string TypeName { get; set; }
-        //public string Currency { get; set; }
-        //public bool IsDiscontinued { get; set; }
-        //public float AvgTimeFilled { get; set; }
-
-
+        public string Name
+        {
+            get { return productName; }
+            set { productName = value; }
+        }
+        public int ID
+        {
+            get { return productID; }
+            set { productID = value; }
+        }
+        public float Price
+        {
+            get { return productPrice; }
+            set { productPrice = value; }
+        }
+        public string ImageURL
+        {
+            get { return productImage; }
+            set { productImage = value; }
+        }
+        public int NumberOfSizes
+        {
+            get { return productSizes; }
+            set { productSizes = value; }
+        }
     }
 }

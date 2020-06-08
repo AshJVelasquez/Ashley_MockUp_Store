@@ -18,8 +18,6 @@ namespace Ashley_MockUp_Store.Controllers
             _printfulService = printfulService;
         }
 
-        
-
         [HttpGet]
         [Route("printful/inventory")]
         public async Task<IActionResult> GetInventory()
@@ -29,8 +27,6 @@ namespace Ashley_MockUp_Store.Controllers
             return Ok(total);
         }
 
-
-        //TODO Determine if this brings up what I need
         [HttpGet]
         [Route("printful/inventory/{id}")]
         public async Task<IActionResult> GetProductInfo(int id)

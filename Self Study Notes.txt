@@ -165,3 +165,16 @@ Okay, so now I got the price to show up in Postman(see 06-01-2020 PostmanResult)
 06-02-2020 
 Notes
 Continued using codedghost as a reference and utilizing Postman in ensuring I got the data I wanted. Success! So, next step is to be able to display the price on the front page. 
+
+06-03-2020
+Notes
+Started building on the ViewModel idea. I used my PDF notes from yesterday to keep going on my thought process. I think instead of trying to compute the range of prices on the front page, I want to instead have my initial prices be the starting price. Then when the user clicks on the image, it will take them to the next step. 
+
+Dang, I had another idea come up, but lost it! Something to do with the front page and what it displays. Oh well, I can't remember now. I am trying to figure what best suits my needs. Static or Interfaces? Or both? I don't seem to remember if they can be used together. I think it is an either/or. 
+Most of the set up is nearing its close. I hope I am successful. 
+
+06-07-2020
+Resources
+1. 20486D - Developing ASP.NET Core MVC Web Applications Textbook
+Notes
+Continuing my ViewModel. I know I want to use the interface in my code, but I don't recall how to implement it.

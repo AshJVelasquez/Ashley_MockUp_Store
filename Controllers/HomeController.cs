@@ -29,6 +29,8 @@ namespace Ashley_MockUp_Store.Controllers
         {
             var result = await _printfulService.GetFullInventory();
             var total = result.Result.ToList();
+            //TODO 06-03-2020 Then insert into method to get all data in one place
+            //List<Product> = FrontPageViewModel.ReturnProductList(total);
             return View(total);
         }
     }
