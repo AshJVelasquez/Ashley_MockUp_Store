@@ -172,3 +172,9 @@ Started building on the ViewModel idea. I used my PDF notes from yesterday to ke
 
 Dang, I had another idea come up, but lost it! Something to do with the front page and what it displays. Oh well, I can't remember now. I am trying to figure what best suits my needs. Static or Interfaces? Or both? I don't seem to remember if they can be used together. I think it is an either/or. 
 Most of the set up is nearing its close. I hope I am successful. 
+
+06-07-2020
+Resources
+1. 20486D - Developing ASP.NET Core MVC Web Applications Textbook
+Notes
+Continuing my ViewModel. I know I want to use the interface in my code, but I don't recall how to implement it.
