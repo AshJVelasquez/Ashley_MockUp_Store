@@ -11,24 +11,26 @@ using javax.naming.directory;
 using System.Net.Http;
 using Printful_Library.Services;
 using Printful_Library.Models;
+using org.omg.PortableServer;
 
 namespace Ashley_MockUp_Store.Controllers
 {
     
     public class HomeController : Controller
     {
-        private readonly IPrintfulServices _printfulService;
+        private readonly IFrontPageViewModel _frontPageView;
 
-        public HomeController(IPrintfulServices printfulService)
+        public HomeController(IFrontPageViewModel frontPageView)
         {
-            _printfulService = printfulService;
+            _frontPageView = frontPageView;
         }
+       
 
-
-        public async Task<IActionResult> Index()
+        public Task<IActionResult> Index()
         {
-            var result = await _printfulService.GetFullInventory();
-            var total = result.Result.ToList();
+            var total =  _frontPageView.GetProductList();
+            //var productList = result.Result.ToList();
+            //var total = .ReturnProductList(productList).ToList();
             //TODO 06-03-2020 Then insert into method to get all data in one place
             //List<Product> = FrontPageViewModel.ReturnProductList(total);
             return View(total);

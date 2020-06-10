@@ -186,3 +186,12 @@ Resources
 
 Notes
 Following TODOs
+
+06-10-2020 
+Resources
+1. https://www.youtube.com/watch?v=xVYa20DCUv0
+2. https://jakeydocs.readthedocs.io/en/latest/mvc/controllers/dependency-injection.html
+
+Notes
+So, setting up the logic for trying to get multiple requests is hard! 
+So my question is do I need to make a model into a service to be able to use that service? 

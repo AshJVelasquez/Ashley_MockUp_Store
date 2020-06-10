@@ -4,67 +4,85 @@ using System.Linq;
 using System.Threading.Tasks;
 using Printful_Library.Models;
 using Printful_Library.Printful;
+using Printful_Library.Services;
 
 namespace Ashley_MockUp_Store.Models
 {
     public class FrontPageViewModel
     {
-        private IGetProductInfo _getProductInfo;
-        public FrontPageViewModel(IGetProductInfo getProductInfo)
+        private readonly IPrintfulServices _printfulServices;
+        public FrontPageViewModel(IPrintfulServices printfulServices)
         {
-            _getProductInfo = getProductInfo;
+            _printfulServices = printfulServices;
         }
 
-        public List<Product> ReturnProductList(List<SyncProduct> total)
+        public List<SyncProduct> list;
+
+        public async void GetProductList() 
         {
-            List<Product> products = new List<Product>();
+            var syncProducts = await _printfulServices.GetFullInventory();
+            list = syncProducts.Result.ToList();
+        } 
+        public void GetPrice() 
+        { 
             
-            foreach(SyncProduct product in total)
-            {
-                Product item = new Product() 
-                { 
-                    ID = product.id, 
-                    ImageURL = product.thumbnail_url, 
-                    Name = product.name 
-                };
-                //item.Price = GetProductPrice(item.ID);
-                //item.NumberOfSizes = GetProductSizes();
-                //TODO 06-07-2020 Finish this wishful programming
-                ProductTotalInfo details = ReturnProductDetails(product.id);
-                item.Price = GetProductPrice(details);
-                //item.NumberOfSizes = GetProductSizes(details); I want to test the price first
-            }
-            return products;
-        }
+        } // Here I get the price
+        public void CreateProductListToDisplay() { } // then I want to create the list of products 
 
-        //TODO 06-07-2020 Returning only the class
-        public ProductTotalInfo ReturnProductDetails(int id)
-        {
-            var result = GetProductDetails(id);
-            var details = result.Result;
-            return details;
-        }
 
-        //TODO 06/07/2020 How do I get all the product info? 
-        public async Task<ProductTotalInfo> GetProductDetails(int id)
-        {
-            var result = await GetProductDetails(id);
-            return result;
-        }
+        //    public async IAsyncEnumerable<SyncProduct> ReturnProductList()
+        //    {
+        //        var result = await _printfulServices.GetFullInventory();
+        //        var total = result.Result;
+        //        return total;
+        //    }
 
-        //TODO Method on getting Price
-        //06-03-2020 Let's get by with STARTING PRICE AT $$$$
-        public float GetProductPrice(ProductTotalInfo details)
-        {
-            //TODO 06-08-2020 Write conditions incase this cannot be retrived
-            //Also, I may need to add CultureInfo according to StackOverflow
-            var value = float.Parse(details.Result.SyncVariants[0].price);
-            return value;
-        }
-        //TODO Method on getting Sizes
-        public int GetProductSizes(ProductTotalInfo details)
-        {
-            throw new NotImplementedException();
-        }
+        //        List<Product> products = new List<Product>();
+
+        //        foreach(SyncProduct product in total)
+        //        {
+        //            Product item = new Product() 
+        //            { 
+        //                ID = product.id, 
+        //                ImageURL = product.thumbnail_url, 
+        //                Name = product.name 
+        //            };
+        //            //item.Price = GetProductPrice(item.ID);
+        //            //item.NumberOfSizes = GetProductSizes();
+        //            //TODO 06-07-2020 Finish this wishful programming
+        //            var details = await _printfulServices.GetAllProductInfo(product.id);
+        //            item.Price = GetProductPrice(details);
+        //            //item.NumberOfSizes = GetProductSizes(details); I want to test the price first
+        //        }
+        //        return products.;
+        //    }
+
+        //    public ProductTotalInfo ReturnProductDetails(int id)
+        //    {
+        //        var result = GetProductDetails(id);
+        //        var details = result.Result;
+        //        return details;
+        //    }
+
+        //    public async Task<ProductTotalInfo> GetProductDetails(int id)
+        //    {
+        //        var result = await ReturnProductInfo(id);
+        //        return result;
+        //    }
+
+        //    public float GetProductPrice(ProductTotalInfo details)
+        //    {
+        //        //TODO 06-08-2020 Write conditions incase this cannot be retrived
+        //        //Also, I may need to add CultureInfo according to StackOverflow
+        //        var value = float.Parse(details.Result.SyncVariants[0].price);
+        //        return value;
+        //    }
+
+        //    public int GetProductSizes(ProductTotalInfo details)
+        //    {
+        //        throw new NotImplementedException();
+        //    }
+
+
     }
 }
