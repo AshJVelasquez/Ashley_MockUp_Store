@@ -18,21 +18,18 @@ namespace Ashley_MockUp_Store.Controllers
     
     public class HomeController : Controller
     {
-        private readonly IFrontPageViewModel _frontPageView;
+        private IFrontPageViewModel _frontPageViewModel;
 
-        public HomeController(IFrontPageViewModel frontPageView)
+        public HomeController(IFrontPageViewModel frontPageViewModel)
         {
-            _frontPageView = frontPageView;
+            _frontPageViewModel = frontPageViewModel;
         }
-       
 
-        public Task<IActionResult> Index()
+
+        public IActionResult Index()
         {
-            var total =  _frontPageView.GetProductList();
-            //var productList = result.Result.ToList();
-            //var total = .ReturnProductList(productList).ToList();
-            //TODO 06-03-2020 Then insert into method to get all data in one place
-            //List<Product> = FrontPageViewModel.ReturnProductList(total);
+            var total = _frontPageViewModel.products;
+
             return View(total);
         }
     }

@@ -8,26 +8,48 @@ using Printful_Library.Services;
 
 namespace Ashley_MockUp_Store.Models
 {
-    public class FrontPageViewModel
+    public class FrontPageViewModel :IFrontPageViewModel
     {
         private readonly IPrintfulServices _printfulServices;
+
         public FrontPageViewModel(IPrintfulServices printfulServices)
         {
             _printfulServices = printfulServices;
         }
 
         public List<SyncProduct> list;
+        public List<Product> products;
+        public float tempPrice;
 
         public async void GetProductList() 
         {
             var syncProducts = await _printfulServices.GetFullInventory();
             list = syncProducts.Result.ToList();
+        }
+
+        public List<Product> CreateProductListToDisplay() 
+        {
+            list = new List<SyncProduct>();
+            GetProductList();
+            foreach(SyncProduct syncProduct in list)
+            {
+                Product product = new Product();
+                product.ID = syncProduct.id;
+                product.Name = syncProduct.name;
+                product.ImageURL = syncProduct.thumbnail_url;
+                GetPrice(product.ID);
+                product.Price = tempPrice;
+                products.Add(product);
+            }
+            return products;
         } 
-        public void GetPrice() 
-        { 
-            
-        } // Here I get the price
-        public void CreateProductListToDisplay() { } // then I want to create the list of products 
+
+        public async void GetPrice(int id) 
+        {
+            var details = await _printfulServices.GetAllProductInfo(id);
+            tempPrice = float.Parse(details.Result.SyncVariants[0].price);
+        } 
+
 
 
         //    public async IAsyncEnumerable<SyncProduct> ReturnProductList()

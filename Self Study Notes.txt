@@ -191,7 +191,11 @@ Following TODOs
 Resources
 1. https://www.youtube.com/watch?v=xVYa20DCUv0
 2. https://jakeydocs.readthedocs.io/en/latest/mvc/controllers/dependency-injection.html
+3. https://stackoverflow.com/search?page=2&tab=Relevance&q=api%20json%20multiple%20request%20C%23
+4. https://docs.microsoft.com/en-us/aspnet/core/mvc/views/dependency-injection?view=aspnetcore-3.1 -- One can use the JSON file on its own
 
 Notes
 So, setting up the logic for trying to get multiple requests is hard! 
 So my question is do I need to make a model into a service to be able to use that service? 
+
+I am starting to think maybe I need to go to Printful Library and create the model there with a price so that all I need to do is call the service from Printful and go from there. 

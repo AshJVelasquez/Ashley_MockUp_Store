@@ -40,6 +40,7 @@ namespace Ashley_MockUp_Store
             services.AddSingleton<IPrintfulServices, PrintfulServices>();
             services.AddSingleton<IGetInventory, GetInventory>();
             services.AddSingleton<IGetProductInfo, GetProductInfo>();
+            services.AddSingleton<IFrontPageViewModel, FrontPageViewModel>();
             //End 05-15-2-2020 
             services.AddHttpClient();
 
