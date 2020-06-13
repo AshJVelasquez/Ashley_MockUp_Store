@@ -8,8 +8,14 @@ using Printful_Library.Services;
 
 namespace Ashley_MockUp_Store.Models
 {
-    public class FrontPageViewModel :IFrontPageViewModel
+    //TODO 06-13-2020 Work on this code later to be able to display the price on the same page
+
+    public class FrontPageViewModel : IFrontPageViewModel
     {
+        public List<SyncProduct> list;
+        public List<Product> products;
+        public float tempPrice;
+
         private readonly IPrintfulServices _printfulServices;
 
         public FrontPageViewModel(IPrintfulServices printfulServices)
@@ -17,26 +23,28 @@ namespace Ashley_MockUp_Store.Models
             _printfulServices = printfulServices;
         }
 
-        public List<SyncProduct> list;
-        public List<Product> products;
-        public float tempPrice;
+        
 
         public async void GetProductList() 
         {
+            list = new List<SyncProduct>();
             var syncProducts = await _printfulServices.GetFullInventory();
             list = syncProducts.Result.ToList();
         }
 
         public List<Product> CreateProductListToDisplay() 
         {
-            list = new List<SyncProduct>();
+            products = new List<Product>();
             GetProductList();
+
             foreach(SyncProduct syncProduct in list)
             {
-                Product product = new Product();
-                product.ID = syncProduct.id;
-                product.Name = syncProduct.name;
-                product.ImageURL = syncProduct.thumbnail_url;
+                Product product = new Product
+                {
+                    ID = syncProduct.id,
+                    Name = syncProduct.name,
+                    ImageURL = syncProduct.thumbnail_url
+                };
                 GetPrice(product.ID);
                 product.Price = tempPrice;
                 products.Add(product);

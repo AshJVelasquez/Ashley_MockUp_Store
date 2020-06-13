@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <Folder Include="Helper\" />
-    <Folder Include="Views\Printful\" />
   </ItemGroup>
 
 </Project>

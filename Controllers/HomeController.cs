@@ -18,17 +18,23 @@ namespace Ashley_MockUp_Store.Controllers
     
     public class HomeController : Controller
     {
-        private IFrontPageViewModel _frontPageViewModel;
-
-        public HomeController(IFrontPageViewModel frontPageViewModel)
+        private IPrintfulServices _printfulServices;
+        public HomeController (IPrintfulServices printfulServices)
         {
-            _frontPageViewModel = frontPageViewModel;
+            _printfulServices = printfulServices;
         }
+        //private IFrontPageViewModel _frontPageViewModel;
+
+        //public HomeController(IFrontPageViewModel frontPageViewModel)
+        //{
+        //    _frontPageViewModel = frontPageViewModel;
+        //}
 
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var total = _frontPageViewModel.products;
+            var list= await _printfulServices.GetFullInventory();
+            var total = list.Result.ToList();
 
             return View(total);
         }

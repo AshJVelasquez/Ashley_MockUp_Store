@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Product>
+﻿@model IEnumerable<SyncProduct>
 
 @{
     ViewData["Title"] = "Home Page";
@@ -14,15 +14,15 @@
 @foreach (var d in Model)
 {
 <div class="gallery">
-    <a target="_blank" href="@d.ImageURL">
+    <a target="_blank" href="product/@d.id">
         <div class="imageContainer">
-            <img id="itemImage" src="@d.ImageURL" alt="@d.Name">
+            <img id="itemImage" src="@d.thumbnail_url" alt="@d.name">
         </div>
     </a>
     <div id="itemInfo">
-        <p>Item Name: @d.Name</p>
-        <p>Item Number: @d.ID</p>
-        <p>Item Price: @d.Price</p>
+        <p>Item Name: @d.name</p>
+        <p>Item Number: @d.id</p>
+        <p>Click for more information!</p>
     </div>
 </div>
         }
