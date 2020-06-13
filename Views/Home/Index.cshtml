@@ -14,7 +14,7 @@
 @foreach (var d in Model)
 {
 <div class="gallery">
-    <a target="_blank" href="@d.thumbnail_url">
+    <a target="_blank" href="product/@d.id">
         <div class="imageContainer">
             <img id="itemImage" src="@d.thumbnail_url" alt="@d.name">
         </div>
@@ -22,6 +22,7 @@
     <div id="itemInfo">
         <p>Item Name: @d.name</p>
         <p>Item Number: @d.id</p>
+        <p>Click for more information!</p>
     </div>
 </div>
         }

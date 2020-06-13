@@ -1,10 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using com.sun.tools.corba.se.logutil;
-using Giphy_Lib.Giphy;
-using Giphy_Lib.Services;
 using Printful_Library.Services;
 using Printful_Library.Printful;
 using Microsoft.AspNetCore.Builder;
@@ -14,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Ashley_MockUp_Store.Models;
 
 namespace Ashley_MockUp_Store
 {
@@ -34,11 +29,10 @@ namespace Ashley_MockUp_Store
             //05-11-2020 Another note from the Resource 1 Youtube video, this method adds all of the MVC framework dependencies into the project
             services.AddMvc(option => option.EnableEndpointRouting = false);
             //05-12-2020 Adding this to the ConfigureServices to enter the Giphylibrary inside
-            services.AddSingleton<IGiphyServices, Giphy_Lib.Services.GiphyServices>();
-            services.AddSingleton<IGetRandomGif, GetRandomGif>();
             services.AddSingleton<IPrintfulServices, PrintfulServices>();
             services.AddSingleton<IGetInventory, GetInventory>();
             services.AddSingleton<IGetProductInfo, GetProductInfo>();
+            services.AddSingleton<IFrontPageViewModel, FrontPageViewModel>();
             //End 05-15-2-2020 
             services.AddHttpClient();
 
