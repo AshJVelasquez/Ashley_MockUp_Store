@@ -108,3 +108,15 @@ div.gallery:hover {
     text-align: center;
 }
 /*https://www.w3schools.com/css/css_image_gallery.asp trying this out*/
+
+/*----Product Information Page----*/
+.details {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10%;
+    margin-right: 10%;
+    border: 1px solid black;
+    width: auto;
+    border-radius: 10px;
+    padding: 5%;
+}
