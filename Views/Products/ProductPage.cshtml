@@ -1,8 +1,26 @@
-﻿
+﻿@model ProductTotalInfo
 @{
     ViewData["Title"] = "ProductPage";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>ProductPage</h1>
+    <div class="text-center">
+        <h1>@Model.Result.SyncProduct.name</h1>
+        <h2>Starting price at @Model.Result.SyncVariants[0].price</h2>
+    </div>
+
+    <div class="details">
+        <div class="imageContainer">
+            <img src="@Model.Result.SyncProduct.thumbnail_url" />
+        </div>
+        <h5>Avaliable Sizes/Color</h5>
+        @foreach(var d in Model.Result.SyncVariants)
+        {
+            <img src="@Model.Result.SyncProduct.thumbnail_url"/>
+            <p><span>@d.VariantName --  </span><span>$@d.price</span></p>
+        }
+    </div>
+
+
+
 
