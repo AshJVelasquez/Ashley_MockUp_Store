@@ -79,18 +79,16 @@ body {
     object-fit:cover;
     max-width:100%;
     height:auto;
-    padding-right:10%;
-    padding-left: 10%;
 }
 
 div.productIcon {
-    margin-bottom: 5px;
-    margin-right:5px;
+    margin: 5px 5px;
     border: 1px solid black;
-    width: 40%;
-    height:initial;
+    width: 30%;
+    height:auto;
     border-radius: 10px;
     padding-top: 5%;
+    background-color: #e6ccff;
 }
 div.gallery:hover {
         border: 1px solid #777;
@@ -102,7 +100,7 @@ div.gallery:hover {
 }
 
 .itemInfo {
-    padding: 15px;
+    padding: 12px;
     text-align: center;
 }
 /*https://www.w3schools.com/css/css_image_gallery.asp trying this out*/
@@ -110,6 +108,8 @@ div.gallery:hover {
 .inventory{
     display:flex;
     flex-wrap:wrap;
+    margin: 10px;
+    align-content:flex-start;
 }
 
 /*----Product Information Page----*/
