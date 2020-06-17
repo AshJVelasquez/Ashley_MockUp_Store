@@ -71,7 +71,7 @@ body {
 }
 
 /*Store front css*/
-#itemImage {
+.itemImage {
     border:solid;
     border-radius: 10px;
     border-color: black;
@@ -101,7 +101,7 @@ div.gallery:hover {
     padding-right:10%;
 }
 
-#itemInfo {
+.itemInfo {
     padding: 15px;
     text-align: center;
 }
@@ -109,6 +109,7 @@ div.gallery:hover {
 
 .inventory{
     display:flex;
+    flex-wrap:wrap;
 }
 
 /*----Product Information Page----*/
