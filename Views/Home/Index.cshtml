@@ -14,15 +14,15 @@
     @foreach (var d in Model)
     {
         <div class="productIcon">
-            <a target="_blank" href="product/@d.id">
+            <a target="_self" href="product/@d.id">
                 <div class="imageContainer">
                     <img class="itemImage" src="@d.thumbnail_url" alt="@d.name">
                 </div>
             </a>
             <div class="itemInfo">
-                <p>Item Name: @d.name</p>
-                <p>Item Number: @d.id</p>
-                <p>Click for more information!</p>
+                <p><b>@d.name</b></p>
+                <p>Item #@d.id</p>
+                <p><b><a target="_self" href="product/@d.id">Click for more information</a></b></p>
             </div>
         </div>
     }
